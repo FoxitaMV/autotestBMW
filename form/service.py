@@ -24,10 +24,6 @@ time1.click()
 time1.send_keys('1231')
 time.sleep(1)
 
-# gender = driver.find_element_by_xpath('//*[@id="gender-76674764"]')
-# gender.click()
-# time.sleep(1)
-
 name = driver.find_element_by_xpath('//*[@id="name"]')
 name.send_keys('Иван')
 time.sleep(1)

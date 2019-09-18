@@ -6,30 +6,14 @@ import math
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC 
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.action_chains import ActionChains
 
 driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
 driver.get("https://demo.bmw.kodixauto.ru/") 
 time.sleep(2)
 
-# link1 = driver.find_element_by_xpath('//*[@id="vin"]')
-# link1.send_keys('12345678912345678')
-# time.sleep(1)
-
-# link2 = driver.find_element_by_xpath('//*[@id="year"]')
-# link2.send_keys('2012')
-# time.sleep(1)
-
-# link3 = driver.find_element_by_xpath('//*[@id="datepicker"]')
-# link3.send_keys('20092019')
-# time.sleep(3)
-
-# time1 = driver.find_element_by_xpath('//*[@id="timepicker"]')
-# time1.click()
-# time1.send_keys('1231')
-# time.sleep(1)
-
-gender = driver.find_element_by_xpath('/html/body/div[1]/main/div[4]/div/div/div/div/div/div/div/div/div[2]/form/div/div[1]/div[2]/div[1]/div/div[1]/label[2]')
+gender = driver.find_element_by_xpath('/html/body/div[1]/main/div[3]/div/div/div/div/div/div/div/div/div[2]/form/div/div[1]/div[2]/div[1]/div/div[1]/label[2]')
 gender.click()
 time.sleep(1)
 
@@ -45,13 +29,11 @@ phone = driver.find_element_by_xpath('//*[@id="phone"]')
 phone.send_keys('9991234567')
 time.sleep(1)
 
-mail = driver.find_element_by_xpath('//*[@id="email"]')
+mail = driver.find_element_by_xpath('//*[@id="email"]') 
 mail.send_keys('dmp@kodix.ru')
 time.sleep(1)
 
-choices = driver.find_elements_by_class_name('choices')
-# choices.send_keys(Keys.ENTER + Keys.DOWN + Keys.ENTER)
-# choices.click()
+choices1 = driver.find_elements_by_css_selector('div.form__section:nth-child(3) > div:nth-child(2)').click()
 time.sleep(1)
 
 
@@ -59,15 +41,11 @@ textarea = driver.find_element_by_id('text')
 textarea.send_keys('МОДЕЛЬНЫЙ РЯД BMW')
 time.sleep(1)
 
-# var1 = driver.find_element_by_xpath('//*[@id="replacement_car"]')
-# var1.click()
-# time.sleep(1)
-
 var2 = driver.find_element_by_xpath('//*[@id="processing_of_personal_data"]')
 var2.click()
 time.sleep(1)
 
-btn = driver.find_element_by_xpath('/html/body/div[1]/main/div[4]/div/div/div/div/div/div/div/div/div[2]/form/div/div[5]/div/button')
+btn = driver.find_element_by_css_selector('button.u107-00__btn > span:nth-child(1)')
 btn.click()
 
 time.sleep(5)
