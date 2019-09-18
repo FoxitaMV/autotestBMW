@@ -2,7 +2,11 @@ from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver 
 import time
 import math
-from selenium.webdriver.support.ui import Select
+# from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC 
 
 driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
 driver.get("https://demo.bmw.kodixauto.ru/") 
@@ -44,6 +48,12 @@ time.sleep(1)
 mail = driver.find_element_by_xpath('//*[@id="email"]')
 mail.send_keys('dmp@kodix.ru')
 time.sleep(1)
+
+choices = driver.find_elements_by_class_name('choices')
+# choices.send_keys(Keys.ENTER + Keys.DOWN + Keys.ENTER)
+# choices.click()
+time.sleep(1)
+
 
 textarea = driver.find_element_by_id('text')
 textarea.send_keys('МОДЕЛЬНЫЙ РЯД BMW')
