@@ -33,20 +33,26 @@ mail = driver.find_element_by_xpath('//*[@id="email"]')
 mail.send_keys('dmp@kodix.ru')
 time.sleep(1)
 
-choices1 = driver.find_elements_by_css_selector('div.form__section:nth-child(3) > div:nth-child(2)').click()
-time.sleep(1)
+try:
+    choices1 = driver.find_elements_by_css_selector('div.form__section:nth-child(3) > div:nth-child(2)').click()
+    ActionChains(driver) \
+        .key_enter(Keys.ENTER) \
+        .click(choices1) \
+        .key_dowm(Keys.DOWN) \
+        .perform()
+    time.sleep(1)
 
+finally:
+    textarea = driver.find_element_by_id('text')
+    textarea.send_keys('МОДЕЛЬНЫЙ РЯД BMW')
+    time.sleep(1)
 
-textarea = driver.find_element_by_id('text')
-textarea.send_keys('МОДЕЛЬНЫЙ РЯД BMW')
-time.sleep(1)
+    var2 = driver.find_element_by_xpath('//*[@id="processing_of_personal_data"]')
+    var2.click()
+    time.sleep(1)
 
-var2 = driver.find_element_by_xpath('//*[@id="processing_of_personal_data"]')
-var2.click()
-time.sleep(1)
-
-btn = driver.find_element_by_css_selector('button.u107-00__btn > span:nth-child(1)')
-btn.click()
+    btn = driver.find_element_by_css_selector('button.u107-00__btn > span:nth-child(1)')
+    btn.click()
 
 time.sleep(5)
 from form import test_drive
