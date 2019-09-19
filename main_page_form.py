@@ -47,7 +47,7 @@ try:
     choices1.send_keys(Keys.ARROW_DOWN)
     time.sleep(1)
     choices1.send_keys(Keys.ENTER)
-    time.sleep(2)
+    time.sleep(1)
 
 finally:
     textarea = driver.find_element_by_id('text')

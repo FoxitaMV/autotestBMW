@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver.common.action_chains import ActionChains
 
 driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
-driver.get("https://demo.bmw.kodixauto.ru/all-models/bmw-x1/") 
+driver.get("https://demo.bmw.kodixauto.ru/all-models/bmw-x7/") 
 time.sleep(2)
 
 def status_slider_check():
@@ -18,7 +18,7 @@ status_slider_check()
 try:
     screenshot = driver.save_screenshot("img\sscc.png")
 finally:
-    time.sleep(3)
+    time.sleep(1)
 
 def status_model_ico():
     if(driver.find_element_by_css_selector('.main-content > div:nth-child(2)')):
@@ -32,7 +32,7 @@ try:
     driver.execute_script("arguments[0].scrollIntoView(true);", status_model_ico)
     screenshot = driver.save_screenshot("img\smi.png")
 finally:
-    time.sleep(3)
+    time.sleep(1)
 
 def status_model_text():
     if(driver.find_element_by_css_selector('.main-content > div:nth-child(3)')):
@@ -46,7 +46,7 @@ try:
     driver.execute_script("arguments[0].scrollIntoView(true);", status_model_text)
     screenshot = driver.save_screenshot("img\smtext.png")
 finally:
-    time.sleep(3)
+    time.sleep(1)
 
 def status_model_pp():
     if(driver.find_element_by_css_selector('.main-content > div:nth-child(4)')):
@@ -60,7 +60,7 @@ try:
     driver.execute_script("arguments[0].scrollIntoView(true);", status_model_pp)
     screenshot = driver.save_screenshot("img\smpp.png")
 finally:
-    time.sleep(3)
+    time.sleep(1)
 
 def status_model_q():
     if(driver.find_element_by_css_selector('.main-content > div:nth-child(5)')):
@@ -74,7 +74,7 @@ try:
     driver.execute_script("arguments[0].scrollIntoView(true);", status_model_q)
     screenshot = driver.save_screenshot("img\smq.png")
 finally:
-    time.sleep(3)
+    time.sleep(1)
 
 def status_model_b():
     if(driver.find_element_by_css_selector('.main-content > div:nth-child(6)')):
@@ -88,7 +88,7 @@ try:
     driver.execute_script("arguments[0].scrollIntoView(true);", status_model_b)
     screenshot = driver.save_screenshot("img\smb.png")
 finally:
-    time.sleep(3) 
+    time.sleep(1) 
 
 def status_model_inn():
     if(driver.find_element_by_css_selector('div.ui:nth-child(7)')):
@@ -102,7 +102,7 @@ try:
     driver.execute_script("arguments[0].scrollIntoView(true);", status_model_inn)
     screenshot = driver.save_screenshot("img\sminn.png")
 finally:
-    time.sleep(3)
+    time.sleep(1)
 
 def status_model_img():
     if(driver.find_element_by_css_selector('div.ui:nth-child(8)')):
@@ -116,7 +116,7 @@ try:
     driver.execute_script("arguments[0].scrollIntoView(true);", status_model_img)
     screenshot = driver.save_screenshot("img\smimgs.png")
 finally:
-    time.sleep(3)
+    time.sleep(1)
 
 def status_model_form():
     if(driver.find_element_by_css_selector('div.ui:nth-child(9)')):
@@ -132,6 +132,7 @@ try:
     driver.execute_script("arguments[0].scrollIntoView(true);", status_model_form)
     screenshot = driver.save_screenshot("img\smform.png")
 finally:
-    time.sleep(3)
+    time.sleep(1)
 
+from page_test import car
 driver.close()
