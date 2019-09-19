@@ -8,14 +8,19 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.common.exceptions import NoSuchElementException
 
 driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
 driver.get("https://demo.bmw.kodixauto.ru/") 
 time.sleep(2)
 
-gender = driver.find_element_by_xpath('/html/body/div[1]/main/div[3]/div/div/div/div/div/div/div/div/div[2]/form/div/div[1]/div[2]/div[1]/div/div[1]/label[2]')
+gender = driver.find_element_by_css_selector('label.u116-00:nth-child(2)')
 gender.click()
 time.sleep(1)
+
+gender2 = driver.find_element_by_css_selector('label.u116-00:nth-child(1)')
+gender2.click()
+time.sleep(2)
 
 name = driver.find_element_by_xpath('//*[@id="name"]')
 name.send_keys('Иван')
@@ -34,13 +39,15 @@ mail.send_keys('dmp@kodix.ru')
 time.sleep(1)
 
 try:
-    choices1 = driver.find_elements_by_css_selector('div.form__section:nth-child(3) > div:nth-child(2)').click()
-    ActionChains(driver) \
-        .key_enter(Keys.ENTER) \
-        .click(choices1) \
-        .key_dowm(Keys.DOWN) \
-        .perform()
+    choices1 = driver.find_element_by_css_selector('.choices')
+    choices1.send_keys(Keys.ENTER)
     time.sleep(1)
+    choices1.send_keys(Keys.ARROW_DOWN)
+    time.sleep(1)
+    choices1.send_keys(Keys.ARROW_DOWN)
+    time.sleep(1)
+    choices1.send_keys(Keys.ENTER)
+    time.sleep(2)
 
 finally:
     textarea = driver.find_element_by_id('text')
@@ -55,5 +62,6 @@ finally:
     btn.click()
 
 time.sleep(5)
+screenshot = driver.save_screenshot("img\main_page.png")
 from form import test_drive
 driver.close()
