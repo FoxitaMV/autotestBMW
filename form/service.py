@@ -95,4 +95,5 @@ finally:
 
 screenshot = driver.save_screenshot("img\service.png")
 time.sleep(5)
+from page_test import main
 driver.close()

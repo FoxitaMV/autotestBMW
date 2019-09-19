@@ -16,7 +16,7 @@ def status_slider_check():
     print(ssc)
 status_slider_check()
 try:
-    screenshot = driver.save_screenshot("\img\ssc.png")
+    screenshot = driver.save_screenshot("img\ssc.png")
 finally:
     time.sleep(3)
 
@@ -30,7 +30,7 @@ status_model_check()
 try:
     status_model_check = driver.find_element_by_css_selector('.main-content > div:nth-child(2)')
     driver.execute_script("arguments[0].scrollIntoView(true);", status_model_check)
-    screenshot = driver.save_screenshot("\img\smc.png")
+    screenshot = driver.save_screenshot("img\smc.png")
 finally:
     time.sleep(3)
 
@@ -44,7 +44,7 @@ status_spec_check()
 try:
     status_spec_check = driver.find_element_by_css_selector('.main-content > div:nth-child(3)')
     driver.execute_script("arguments[0].scrollIntoView(true);", status_spec_check)
-    screenshot = driver.save_screenshot("\img\sspc.png")
+    screenshot = driver.save_screenshot("img\sspc.png")
 finally:
     time.sleep(3)
 
@@ -58,7 +58,7 @@ status_form_check()
 try:
     status_form_check = driver.find_element_by_css_selector('.main-content > div:nth-child(4)')
     driver.execute_script("arguments[0].scrollIntoView(true);", status_form_check)
-    screenshot = driver.save_screenshot("\img\sfc.png")
+    screenshot = driver.save_screenshot("img\sfc.png")
 finally:
     time.sleep(3)
 
