@@ -10,10 +10,12 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 
+driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
+driver.get("https://demo.bmw.kodixauto.ru/offers-and-services/test-drive/") 
+driver.maximize_window()
+time.sleep(2)
+
 class test_drive(unittest.TestCase):
-    driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
-    driver.get("https://demo.bmw.kodixauto.ru/offers-and-services/test-drive/") 
-    time.sleep(2)
 
     try:
         choices1 = driver.find_element_by_css_selector('.choices')

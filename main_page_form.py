@@ -11,12 +11,12 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import NoSuchElementException
 
+driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
+driver.maximize_window()
+driver.get("https://demo.bmw.kodixauto.ru/") 
+time.sleep(2)
+
 class main_page_form(unittest.TestCase):
-
-    driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
-    driver.get("https://demo.bmw.kodixauto.ru/") 
-    time.sleep(2)
-
 
     gender = driver.find_element_by_css_selector('label.u116-00:nth-child(2)')
     gender.click()

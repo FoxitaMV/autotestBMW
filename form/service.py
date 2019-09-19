@@ -11,10 +11,13 @@ from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.common.exceptions import NoSuchElementException
 
+driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
+driver.maximize_window()
+driver.get("https://demo.bmw.kodixauto.ru/owners/vehicle-service-parts/service-form/") 
+time.sleep(1)
+
 class service(unittest.TestCase):
-    driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
-    driver.get("https://demo.bmw.kodixauto.ru/owners/vehicle-service-parts/service-form/") 
-    time.sleep(1)
+    
 
     try: 
         choices1 = driver.find_element_by_css_selector('div.form__section:nth-child(1) > div:nth-child(2) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1) > div:nth-child(1)')
