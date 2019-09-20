@@ -8,7 +8,7 @@ import unittest
 driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
 driver.maximize_window()
 driver.get("https://demo.bmw.kodixauto.ru/") 
-time.sleep(1)
+driver.implicitly_wait(5)
 
 class main(unittest.TestCase):
 

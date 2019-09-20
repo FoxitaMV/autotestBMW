@@ -8,7 +8,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
 driver.maximize_window()
 driver.get("https://demo.bmw.kodixauto.ru/all-models/bmw-x7/") 
-time.sleep(2)
+driver.implicitly_wait(5)
 
 class car(unittest.TestCase):
 

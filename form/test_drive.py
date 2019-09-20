@@ -13,7 +13,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
 driver.get("https://demo.bmw.kodixauto.ru/offers-and-services/test-drive/") 
 driver.maximize_window()
-time.sleep(2)
+driver.implicitly_wait(5)
 
 class test_drive(unittest.TestCase):
 
@@ -71,7 +71,7 @@ class test_drive(unittest.TestCase):
         btn = driver.find_element_by_xpath('/html/body/div[1]/main/div/div/div/div/div/div/div/div/div/div[2]/form/div/div[5]/div/button')
         btn.click()
 
-    screenshot = driver.save_screenshot("img\test_driver.png")
+    screenshot = driver.save_screenshot("img\drive_page.png")
     time.sleep(5)
-    from form import service
+    # from form import service
     driver.close()

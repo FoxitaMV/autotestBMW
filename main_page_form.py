@@ -14,7 +14,7 @@ from selenium.common.exceptions import NoSuchElementException
 driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
 driver.maximize_window()
 driver.get("https://demo.bmw.kodixauto.ru/") 
-time.sleep(2)
+driver.implicitly_wait(5)
 
 class main_page_form(unittest.TestCase):
 
