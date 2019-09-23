@@ -1,69 +1,93 @@
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium import webdriver
-import time
+from webdriver_manager.firefox import GeckoDriverManager
+from selenium.webdriver.common.keys import Keys
 from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.common.action_chains import ActionChains
 import unittest
 
-driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
-driver.maximize_window()
-driver.get("https://demo.bmw.kodixauto.ru/") 
-driver.implicitly_wait(5)
+class TestMainPageWork(unittest.TestCase):
+	
+    def setUp(self):
+        self.driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
 
-class main(unittest.TestCase):
-
-    def status_slider_check():
-        if(driver.find_element_by_css_selector('.main-content > div:nth-child(1)')):
-            ssc = "True"
+    def test_header_find(self):
+        driver = self.driver
+        driver.get("https://demo.bmw.kodixauto.ru/")
+        self.assertIn("Главная страница", driver.title)
+        self = driver.find_element_by_class_name("main-header")
+        header = driver.find_elements_by_class_name("main-header")
+        if driver.find_elements_by_class_name("main-header") == header:
+            print('Шапка есть')
         else:
-            ssc = "False"
-        print(ssc)
-    status_slider_check()
-    try:
-        screenshot = driver.save_screenshot("img\ssc.png")
-    finally:
-        time.sleep(1)
-
-    def status_model_check():
-        if(driver.find_element_by_css_selector('.main-content > div:nth-child(2)')):
-            smc = "True"    
+            print('Шапки нет')
+	
+    def test_content_find(self):
+        driver = self.driver
+        driver.get("https://demo.bmw.kodixauto.ru/")
+        self = driver.find_element_by_class_name("main-content")
+        content = driver.find_elements_by_class_name("main-content")
+        if driver.find_element_by_class_name("main-content") == content:
+            print('Content есть!')
         else:
-            smc = "False"
-        print(smc)
-    status_model_check()
-    try:
-        status_model_check = driver.find_element_by_css_selector('.main-content > div:nth-child(2)')
-        driver.execute_script("arguments[0].scrollIntoView(true);", status_model_check)
-        screenshot = driver.save_screenshot("img\smc.png")
-    finally:
-        time.sleep(1)
-
-    def status_spec_check():
-        if(driver.find_element_by_css_selector('.main-content > div:nth-child(3)')):
-            sspc = "True"
+            print('Content нет')
+        
+    def test_stage_find(self):
+        driver = self.driver
+        driver.get("https://demo.bmw.kodixauto.ru/")
+        self = driver.find_element_by_css_selector(".main-content > div:nth-child(1)")
+        stage = driver.find_element_by_css_selector(".main-content > div:nth-child(1)")
+        if driver.find_element_by_css_selector(".main-content > div:nth-child(1)") == stage:
+            print('Element stage find!')
         else:
-            sspc = "False"
-        print(sspc)
-    status_spec_check()
-    try:
-        status_spec_check = driver.find_element_by_css_selector('.main-content > div:nth-child(3)')
-        driver.execute_script("arguments[0].scrollIntoView(true);", status_spec_check)
-        screenshot = driver.save_screenshot("img\sspc.png")
-    finally:
-        time.sleep(1)
+            print('Error')
 
-    def status_form_check():
-        if(driver.find_element_by_css_selector('.main-content > div:nth-child(4)')):
-            sfc = "True"
+    def test_cars_find(self):
+        driver = self.driver
+        driver.get("https://demo.bmw.kodixauto.ru/")
+        self = driver.find_elements_by_css_selector(".main-content > div:nth-child(2)")
+        cars = driver.find_element_by_css_selector(".main-content > div:nth-child(2)")
+        if driver.find_element_by_css_selector(".main-content > div:nth-child(2)") == cars:
+            print('Element cars find!')
         else:
-            sfc = "False"
-        print(sfc)
-    status_form_check()
-    try:
-        status_form_check = driver.find_element_by_css_selector('.main-content > div:nth-child(4)')
-        driver.execute_script("arguments[0].scrollIntoView(true);", status_form_check)
-        screenshot = driver.save_screenshot("img\sfc.png")
-    finally:
-        time.sleep(1)
+            print('Error')
+    
+    def test_spc_find(self):
+        driver = self.driver
+        driver.get("https://demo.bmw.kodixauto.ru/")
+        self = driver.find_elements_by_css_selector(".main-content > div:nth-child(3)")
+        spc = driver.find_elements_by_css_selector(".main-content > div:nth-child(3)")
+        if driver.find_elements_by_css_selector(".main-content > div:nth-child(3)") == spc:
+            print('Element spc find!')
+        else:
+            print('Error!')
 
-driver.close()
+
+    def test_form_find(self):
+        driver = self.driver
+        driver.get("https://demo.bmw.kodixauto.ru/")
+        self = driver.find_elements_by_css_selector(".main-content > div:nth-child(4)")
+        form = driver.find_elements_by_css_selector(".main-content > div:nth-child(4)")
+        if driver.find_elements_by_css_selector(".main-content > div:nth-child(4)") == form:
+            print('Element form find!')
+        else:
+            print('Error!')
+    
+    def test_footer_find(self):
+        driver = self.driver
+        driver.get("https://demo.bmw.kodixauto.ru/")
+        self = driver.find_elements_by_class_name("main-footer")
+        footer = driver.find_elements_by_class_name("main-footer")
+        if driver.find_elements_by_class_name("main-footer") == footer:
+            print('Element footer find')
+        else:
+            print('Error!')
+
+    def test_form_send(self):
+        driver = self.driver
+        driver.get("https://demo.bmw.kodixauto.ru/")
+        import form_test
+
+    def tearDown(self):
+        self.driver.close()
+
+if __name__ == "__main__":
+	unittest.main()
