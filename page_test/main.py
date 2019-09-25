@@ -7,7 +7,7 @@ import unittest
 class TestMainPageWork(unittest.TestCase):
 	
     def setUp(self):
-        self.driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+        self.driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
 
     def test_header_find(self):
         driver = self.driver

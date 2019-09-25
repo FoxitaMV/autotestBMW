@@ -14,7 +14,7 @@ import unittest
 
 class main_page_form(unittest.TestCase):
     def setUp(self):
-        self.driver = webdriver.Firefox(executable_path=GeckoDriverManager().install())
+        self.driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
 
     def test_form_send(self):
         driver = self.driver

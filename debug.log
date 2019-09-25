@@ -39,3 +39,5 @@
 [0923/135856.661:ERROR:process_reader_win.cc(151)] SuspendThread: Отказано в доступе. (0x5)
 [0923/135856.661:ERROR:process_reader_win.cc(123)] NtOpenThread: {Отказ доступа} Процесс запросил доступ к объекту, однако права доступа не предоставлены. (0xc0000022)
 [0923/135856.661:ERROR:exception_snapshot_win.cc(98)] thread ID 932 not found in process
+[0923/194217.576:ERROR:process_reader_win.cc(123)] NtOpenThread: {Отказ доступа} Процесс запросил доступ к объекту, однако права доступа не предоставлены. (0xc0000022)
+[0923/194217.584:ERROR:exception_snapshot_win.cc(98)] thread ID 6444 not found in process
