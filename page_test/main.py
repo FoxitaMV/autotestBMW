@@ -9,10 +9,14 @@ class TestMainPageWork(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
 
-    def test_header_find(self):
+    def test_title_header(self):
         driver = self.driver
         driver.get("https://demo.bmw.kodixauto.ru/")
         self.assertIn("Главная страница", driver.title)
+
+    def test_header_find(self):
+        driver = self.driver
+        driver.get("https://demo.bmw.kodixauto.ru/")
         self = driver.find_element_by_class_name("main-header")
         header = driver.find_elements_by_class_name("main-header")
         if driver.find_elements_by_class_name("main-header") == header:
@@ -84,7 +88,6 @@ class TestMainPageWork(unittest.TestCase):
     def test_form_send(self):
         driver = self.driver
         driver.get("https://demo.bmw.kodixauto.ru/")
-        import form_test
 
     def tearDown(self):
         self.driver.close()
