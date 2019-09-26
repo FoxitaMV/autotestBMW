@@ -17,17 +17,17 @@ class LinkClickTestCase(unittest.TestCase):
         self.driver.get("https://demo.bmw.kodixauto.ru/")
         driver.fullscreen_window()
         links = []
-        self.link = driver.find_elements_by_class_name("u107-00__btn")
-        
-        links = []
-        for link in links:
-            driver.click()
-            driver.back()
+        self = driver.find_element_by_class_name("u107-00__btn")
 
+        for self in links:
+            self.click()
+
+            self.driver.get("https://demo.bmw.kodixauto.ru/")
        
             
     def tearDown(self):
         self.driver.close()
+
         
 if __name__ == "__main__":
 	unittest.main()
