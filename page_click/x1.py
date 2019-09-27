@@ -11,14 +11,14 @@ class TestX1TestDrive(unittest.TestCase):
     def setUp(self):
         self.driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
 
-    def test_title_header(self):
-        driver = self.driver
-        driver.get("https://demo.bmw.kodixauto.ru/")
-        self.assertIn("Главная страница", driver.title)
-
     def test_X1_testdrive(self):
         driver = self.driver
-        driver.get("https://demo.bmw.kodixauto.ru/")
+        driver.get("https://izar-avto.client.bmw.kodixauto.ru/")
+        self.assertIn("Главная страница", driver.title)
+
+        self = driver.find_element_by_xpath("/html/body/div[1]/header")
+        self = driver.find_element_by_xpath("/html/body/div[1]/footer") 
+        
         self = driver.find_element_by_xpath("/html/body/div[1]/main/div[2]/div/div[2]/div/div/div/div/div/div[2]/div/div[1]/div/div/div/div[1]/div/div[1]/div/div/div[5]/div/div/a")
         self.click()
 
@@ -81,8 +81,12 @@ class TestX1TestDrive(unittest.TestCase):
 
         self = driver.find_element_by_xpath('/html/body/div[1]/main/div/div/div/div/div/div/div/div/div/div[2]/form/div/div[6]/div/button')
         self.click()
+        time.sleep(1)
 
         driver.back()
+
+        self = driver.find_element_by_xpath("/html/body/div[1]/header")
+        self = driver.find_element_by_xpath("/html/body/div[1]/footer")
 
         self = driver.find_element_by_css_selector("label.u116-00:nth-child(2)")
         self.click()
@@ -109,7 +113,6 @@ class TestX1TestDrive(unittest.TestCase):
 
     def tearDown(self):
         self.driver.close()
-        
 
 if __name__ == "__main__":
 	unittest.main()

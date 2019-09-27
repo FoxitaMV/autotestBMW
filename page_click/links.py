@@ -17,7 +17,7 @@ class LinkClickTestCase(unittest.TestCase):
         self.driver.get("https://demo.bmw.kodixauto.ru/")
         driver.fullscreen_window()
         links = []
-        self = driver.find_element_by_class_name("u107-00__btn")
+        self = driver.find_elements_by_class_name("u107-00__btn")
 
         for self in links:
             self.click()
